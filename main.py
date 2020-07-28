@@ -36,8 +36,8 @@ class Car(Turtle):
 
 
         self.max_velocity = start_velocity
-        self.velocity = start_velocity   # 현재 속
-        self.prev_velocity = start_velocity  # 1초 전 속도
+        self.velocity = start_velocity   # current velocity
+        self.prev_velocity = start_velocity  # before 1 second
         self.decel_token = (False, 0)
         self.acel_token = True
 
@@ -66,7 +66,7 @@ class Car(Turtle):
 
             self.acel_token = True
 
-            # 2번
+            # 1
             deceleration1 = prob_fun(prob_cond)
             self.velocity -= deceleration1
             if self.velocity < 0:
@@ -76,16 +76,16 @@ class Car(Turtle):
                 self.acel_token = False
                 self.break_signal()
 
-            # 3번.
+            # 2
             if (self.acel_token == True) and \
                 (self.max_velocity > self.velocity) :
-                self.velocity += 1 # 나중에 조절.
+                self.velocity += 1 
 
 
         elif self.prev != None:
             self.acel_token = True
 
-            # 1번.
+            # 1
             if self.decel_token[0] == True:
 
                 if self.prev.pos()[0] - (self.velocity + self.pos()[0]) > safe_dist:
@@ -103,7 +103,7 @@ class Car(Turtle):
             if delta < 0:
                 self.decel_token = (True, delta)
 
-            # 2번
+            # 2
 
 
             deceleration = prob_fun(prob_cond)
@@ -113,10 +113,10 @@ class Car(Turtle):
                 self.acel_token = False
                 self.break_signal()
 
-            # 3번.
+            # 3
             if (self.acel_token == True) and  \
                     (self.max_velocity > self.velocity) and \
-                    (self.prev.pos()[0] - (self.velocity + self.pos()[0]) > safe_dist): # 안전 거리 조정 필
+                    (self.prev.pos()[0] - (self.velocity + self.pos()[0]) > safe_dist): 
                 self.velocity += 1 # 나중에 조
 
 
@@ -130,7 +130,7 @@ class Car(Turtle):
             self.velocity = self.prev.pos()[0] - (safe_dist + self.pos()[0])
 
         if self.next == None:
-            return True  # 한번 순환이 끝났다.
+            return True 
         else:
             self.next.go()
 
