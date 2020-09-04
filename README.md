@@ -3,7 +3,7 @@
 
 Used Library : Numpy, PyQt5, Turtle
 
-Assum that the probability of braking is based on a Poisson distribution.
+Assume that the probability of braking is based on a Poisson distribution.
 
 
 
