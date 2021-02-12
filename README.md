@@ -1,5 +1,6 @@
 # phantom-traffic-jam-with-turtle-moudle
- simulation of why phantom-traffic-jam occurs
+
+## Why does phantom-traffic-jam occur?
 
 Used Library : Numpy, PyQt5, Turtle
 
